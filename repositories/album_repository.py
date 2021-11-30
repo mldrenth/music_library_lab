@@ -37,7 +37,7 @@ def select_all():
         artist = artist_repository.select(row["artist_id"])
         album = Album(row['title'], row['genre'], artist, row['id'])
         albums.append(album)
-    return 
+    return albums
     
 #UPDATE
 def update(album):
