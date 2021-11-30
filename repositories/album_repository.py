@@ -11,3 +11,9 @@ def save(album):
     id = results[0]['id']
     album.id = id
     return album
+
+#DELETE ALL
+
+def delete_all():
+    sql = "DELETE FROM albums"
+    run_sql(sql)
