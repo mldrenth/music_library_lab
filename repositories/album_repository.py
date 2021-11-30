@@ -1,7 +1,10 @@
+from pdb import run
 from db.run_sql import run_sql
 
 from models.album import Album
 from models.artist import Artist
+
+import repositories.artist_repository as artist_repository
 
 #Create
 def save(album):
@@ -11,6 +14,19 @@ def save(album):
     id = results[0]['id']
     album.id = id
     return album
+
+#SELECT BY ID
+def select(id):
+    album = None
+    sql = "SELECT * FROm albums WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+
+    if result is not None:
+        artist = artist_repository.select(result['artist_id'])
+        album = Album(result['title'], result['genre'], artist, result['id'])
+    return album
+
 
 #DELETE ALL
 
