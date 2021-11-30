@@ -37,7 +37,13 @@ def select_all():
         artist = artist_repository.select(row["artist_id"])
         album = Album(row['title'], row['genre'], artist, row['id'])
         albums.append(album)
-    return albums
+    return 
+    
+#UPDATE
+def update(album):
+    sql = "UPDATE albums SET (title, genre, artist_id) = (%s, %s, %s) WHERE id = %s"
+    values = [album.title, album.genre, album.artist.id, album.id]
+    run_sql(sql, values)
 
 #DELETE BY ID
 def delete(id):

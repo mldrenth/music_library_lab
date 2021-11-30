@@ -19,6 +19,9 @@ album_repository.save(album_2)
 album_3 = Album("Test 2", "Test genre 2", artist_2 )
 album_repository.save(album_3)
 
+artist_3 = Artist("Different")
+album_4 = Album("Different Title", "Different Genre", artist_3)
+
 # artist_repository.select(1)
 # album_repository.select(1)
 print (artist_repository.albums(artist_2))
