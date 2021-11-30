@@ -39,6 +39,11 @@ def select_all():
         albums.append(album)
     return albums
 
+#DELETE BY ID
+def delete(id):
+    sql = "DELETE FROM albums WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
 
 #DELETE ALL
 

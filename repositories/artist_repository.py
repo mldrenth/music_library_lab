@@ -38,6 +38,13 @@ def select_all():
         artists.append(artist)
     return artists
 
+#DELETE BY ID
+
+def delete(id):
+    sql = "DELETE FROM artists WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
 #DELETE ALL
 
 def delete_all():
